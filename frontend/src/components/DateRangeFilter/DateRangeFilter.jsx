@@ -55,30 +55,46 @@ export default function DateRangeFilter({ start, end, onApply }) {
   return (
     <div className="date-range-filter">
       <div className="date-range-filter__presets">
-        <button className="preset-btn" onClick={() => handlePreset("week")}>This Week</button>
-        <button className="preset-btn" onClick={() => handlePreset("month")}>This Month</button>
-        <button className="preset-btn" onClick={() => handlePreset("all")}>Past Year</button>
+        <button className="preset-btn" onClick={() => handlePreset("week")}>
+          This Week
+        </button>
+        <button className="preset-btn" onClick={() => handlePreset("month")}>
+          This Month
+        </button>
+        <button className="preset-btn" onClick={() => handlePreset("all")}>
+          Past Year
+        </button>
       </div>
       <div className="date-range-filter__inputs">
         <div className="form-group">
-          <label className="form-label" htmlFor="range-start">From</label>
+          <label className="form-label" htmlFor="range-start">
+            From
+          </label>
           <input
             id="range-start"
             type="date"
             className="form-input"
             value={localStart}
-            onChange={(e) => { setLocalStart(e.target.value); setErr(null); }}
+            onChange={(e) => {
+              setLocalStart(e.target.value);
+              setErr(null);
+            }}
           />
         </div>
         <div className="form-group">
-          <label className="form-label" htmlFor="range-end">To</label>
+          <label className="form-label" htmlFor="range-end">
+            To
+          </label>
           <input
             id="range-end"
             type="date"
             className="form-input"
             value={localEnd}
             max={new Date().toISOString().split("T")[0]}
-            onChange={(e) => { setLocalEnd(e.target.value); setErr(null); }}
+            onChange={(e) => {
+              setLocalEnd(e.target.value);
+              setErr(null);
+            }}
           />
         </div>
         <button className="btn btn--primary" onClick={handleApply}>

@@ -1,39 +1,51 @@
+import globals from "globals";
 import js from "@eslint/js";
+import eslintConfigPrettier from "eslint-config-prettier";
+import prettier from "eslint-plugin-prettier";
 import reactPlugin from "eslint-plugin-react";
-import * as reactHooks from "eslint-plugin-react-hooks";
 
 export default [
-  js.configs.recommended,
   {
-    plugins: {
-      react: reactPlugin,
-      "react-hooks": reactHooks,
-    },
+    files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: "latest",
       sourceType: "module",
       parserOptions: {
-        ecmaFeatures: { jsx: true },
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
       globals: {
-        window: "readonly",
-        document: "readonly",
-        console: "readonly",
-        fetch: "readonly",
-        setTimeout: "readonly",
-        clearTimeout: "readonly",
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es2025,
       },
+    },
+    plugins: {
+      prettier: prettier,
+      react: reactPlugin,
     },
     settings: {
       react: { version: "detect" },
     },
     rules: {
-      "react/prop-types": "error",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "no-unused-vars": "warn",
-      semi: ["error", "always"],
+      ...js.configs.recommended.rules,
+      ...reactPlugin.configs.recommended.rules,
+      "react/react-in-jsx-scope": "off",
+      indent: ["error", 2, { SwitchCase: 1 }],
+      "linebreak-style": ["error", "unix"],
       quotes: ["error", "double"],
+      semi: ["error", "always"],
+      "no-console": 0,
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "lf",
+          trailingComma: "es5",
+          singleQuote: false,
+        },
+      ],
     },
   },
+  eslintConfigPrettier,
 ];

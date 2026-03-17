@@ -78,7 +78,13 @@ export default function HabitForm({ existing, onSave, onClose }) {
   }
 
   return (
-    <div className="modal-backdrop" onClick={handleBackdropClick} role="dialog" aria-modal="true" aria-labelledby="habit-form-title">
+    <div
+      className="modal-backdrop"
+      onClick={handleBackdropClick}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="habit-form-title"
+    >
       <div className="modal">
         <div className="modal__header">
           <h2 id="habit-form-title" className="modal__title">
@@ -140,7 +146,9 @@ export default function HabitForm({ existing, onSave, onClose }) {
               Frequency <span className="form-required">*</span>
             </legend>
             <div className="freq-options">
-              <label className={`freq-option ${frequency === "daily" ? "freq-option--active" : ""}`}>
+              <label
+                className={`freq-option ${frequency === "daily" ? "freq-option--active" : ""}`}
+              >
                 <input
                   type="radio"
                   name="frequency"
@@ -150,7 +158,9 @@ export default function HabitForm({ existing, onSave, onClose }) {
                 />
                 <span>Daily</span>
               </label>
-              <label className={`freq-option ${frequency === "weekly" ? "freq-option--active" : ""}`}>
+              <label
+                className={`freq-option ${frequency === "weekly" ? "freq-option--active" : ""}`}
+              >
                 <input
                   type="radio"
                   name="frequency"

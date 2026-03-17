@@ -13,14 +13,18 @@ export default function ProgressBar({ percentage, showLabel }) {
   const clamped = Math.min(Math.max(percentage, 0), 100);
 
   return (
-    <div className="progress-bar" role="progressbar" aria-valuenow={clamped} aria-valuemin={0} aria-valuemax={100}>
+    <div
+      className="progress-bar"
+      role="progressbar"
+      aria-valuenow={clamped}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    >
       <div
         className={`progress-bar__fill progress-bar__fill--${color}`}
         style={{ width: `${clamped}%` }}
       />
-      {showLabel && (
-        <span className="progress-bar__label">{clamped}%</span>
-      )}
+      {showLabel && <span className="progress-bar__label">{clamped}%</span>}
     </div>
   );
 }

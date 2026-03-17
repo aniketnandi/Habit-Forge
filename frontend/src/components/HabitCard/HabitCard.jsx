@@ -23,10 +23,7 @@ export default function HabitCard({ habit, onEdit, onDelete }) {
   const color = CATEGORY_COLORS[habit.category] || "gray";
   const emoji = CATEGORY_EMOJI[habit.category] || "⭐";
 
-  const freqLabel =
-    habit.frequency === "daily"
-      ? "Daily"
-      : `${habit.targetCount}× / week`;
+  const freqLabel = habit.frequency === "daily" ? "Daily" : `${habit.targetCount}× / week`;
 
   return (
     <article className={`habit-card habit-card--${color}`}>
@@ -39,9 +36,7 @@ export default function HabitCard({ habit, onEdit, onDelete }) {
       <div className="habit-card__body">
         <div className="habit-card__top">
           <h2 className="habit-card__name">{habit.name}</h2>
-          <span className={`habit-card__badge habit-card__badge--${color}`}>
-            {habit.category}
-          </span>
+          <span className={`habit-card__badge habit-card__badge--${color}`}>{habit.category}</span>
         </div>
         <p className="habit-card__meta">
           <span className="habit-card__freq">{freqLabel}</span>

@@ -23,9 +23,7 @@ router.get("/:id", async (req, res) => {
       return res.status(400).json({ error: "Invalid habit ID" });
     }
     const db = getDB();
-    const habit = await db
-      .collection("habits")
-      .findOne({ _id: new ObjectId(req.params.id) });
+    const habit = await db.collection("habits").findOne({ _id: new ObjectId(req.params.id) });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
     res.json(habit);
   } catch (err) {
@@ -51,7 +49,9 @@ router.post("/", async (req, res) => {
 
     const validCategories = ["Study", "Fitness", "Health", "Mindfulness", "Other"];
     if (!validCategories.includes(category)) {
-      return res.status(400).json({ error: `category must be one of: ${validCategories.join(", ")}` });
+      return res
+        .status(400)
+        .json({ error: `category must be one of: ${validCategories.join(", ")}` });
     }
 
     const newHabit = {
@@ -93,7 +93,9 @@ router.put("/:id", async (req, res) => {
 
     const validCategories = ["Study", "Fitness", "Health", "Mindfulness", "Other"];
     if (!validCategories.includes(category)) {
-      return res.status(400).json({ error: `category must be one of: ${validCategories.join(", ")}` });
+      return res
+        .status(400)
+        .json({ error: `category must be one of: ${validCategories.join(", ")}` });
     }
 
     const updates = {

@@ -72,8 +72,6 @@ export default function Dashboard() {
     return matchSearch && matchCat && matchFreq;
   });
 
-  const completedToday = habits.filter((h) => h._completedToday).length;
-
   return (
     <div className="page">
       <div className="dashboard__header fade-in">
@@ -156,11 +154,7 @@ export default function Dashboard() {
       )}
 
       {showForm && (
-        <HabitForm
-          existing={editHabit}
-          onSave={handleFormSave}
-          onClose={handleFormClose}
-        />
+        <HabitForm existing={editHabit} onSave={handleFormSave} onClose={handleFormClose} />
       )}
     </div>
   );

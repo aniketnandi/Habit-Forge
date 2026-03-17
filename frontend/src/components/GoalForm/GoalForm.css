@@ -1,0 +1,59 @@
+.goal-form {
+  border-top: 1px solid var(--gray-100);
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+.goal-form__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.goal-form__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+.goal-form__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.goal-form__current {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--teal);
+  background: var(--teal-pale);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.goal-form__editor {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-form__input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.goal-form__pct-label {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  font-weight: 600;
+}
+
+.goal-form__btns {
+  display: flex;
+  gap: 8px;
+}

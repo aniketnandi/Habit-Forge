@@ -66,11 +66,7 @@ router.get("/streak/:habitId", async (req, res) => {
     const habit = await db.collection("habits").findOne({ _id: habitId });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
-    const logs = await db
-      .collection("logs")
-      .find({ habitId })
-      .project({ logDate: 1 })
-      .toArray();
+    const logs = await db.collection("logs").find({ habitId }).project({ logDate: 1 }).toArray();
 
     const dates = logs.map((l) => l.logDate);
     const { current, longest } = computeStreaks(dates);
@@ -105,8 +101,7 @@ router.get("/weekly/:habitId", async (req, res) => {
       .toArray();
 
     const logsThisWeek = logs.length;
-    const target =
-      habit.frequency === "daily" ? 7 : habit.targetCount;
+    const target = habit.frequency === "daily" ? 7 : habit.targetCount;
     const percentage = Math.min(Math.round((logsThisWeek / target) * 100), 100);
 
     res.json({
@@ -151,13 +146,10 @@ router.get("/summary", async (req, res) => {
         const target = habit.frequency === "daily" ? 7 : habit.targetCount;
         const weeklyPct = Math.min(Math.round((weeklyLogs / target) * 100), 100);
 
-        const totalDays =
-          Math.max(
-            1,
-            Math.round(
-              (new Date(today) - new Date(habit.createdAt)) / (1000 * 60 * 60 * 24)
-            )
-          );
+        const totalDays = Math.max(
+          1,
+          Math.round((new Date(today) - new Date(habit.createdAt)) / (1000 * 60 * 60 * 24))
+        );
         const overallPct = Math.min(Math.round((dates.length / totalDays) * 100), 100);
 
         return {
@@ -226,10 +218,7 @@ router.get("/range/:habitId", async (req, res) => {
     const endD = new Date(end);
     const totalDaysInRange = Math.round((endD - startD) / (1000 * 60 * 60 * 24)) + 1;
 
-    const completionRate = Math.min(
-      Math.round((dates.length / totalDaysInRange) * 100),
-      100
-    );
+    const completionRate = Math.min(Math.round((dates.length / totalDaysInRange) * 100), 100);
 
     // Weekly breakdown
     const weeklyMap = {};

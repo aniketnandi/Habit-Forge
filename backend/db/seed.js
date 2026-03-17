@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { MongoClient, ObjectId } = require("mongodb");
+const { MongoClient } = require("mongodb");
 
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -58,12 +58,18 @@ async function seed() {
     const db = client.db("habitforge");
 
     console.log("Dropping existing collections...");
-    await db.collection("habits").drop().catch(() => {});
-    await db.collection("logs").drop().catch(() => {});
+    await db
+      .collection("habits")
+      .drop()
+      .catch(() => {});
+    await db
+      .collection("logs")
+      .drop()
+      .catch(() => {});
 
     console.log("Seeding habits...");
     const now = new Date();
-    const habits = HABIT_TEMPLATES.map((template, i) => ({
+    const habits = HABIT_TEMPLATES.map((template) => ({
       ...template,
       createdAt: addDays(now, -randomInt(30, 365)),
       updatedAt: addDays(now, -randomInt(0, 10)),

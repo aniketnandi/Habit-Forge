@@ -81,17 +81,27 @@ export default function LogView() {
   }
 
   if (loading) return <div className="spinner">Loading logs…</div>;
-  if (error) return <div className="page"><div className="error-box">{error}</div></div>;
+  if (error)
+    return (
+      <div className="page">
+        <div className="error-box">{error}</div>
+      </div>
+    );
 
   return (
     <div className="page">
       <div className="logview__header fade-in">
-        <button className="logview__back" onClick={() => navigate("/")} aria-label="Back to Dashboard">
+        <button
+          className="logview__back"
+          onClick={() => navigate("/")}
+          aria-label="Back to Dashboard"
+        >
           ← Back to Dashboard
         </button>
         <h1 className="logview__title">{habit?.name}</h1>
         <p className="logview__meta">
-          {habit?.category} · {habit?.frequency === "daily" ? "Daily" : `${habit?.targetCount}× / week`}
+          {habit?.category} ·{" "}
+          {habit?.frequency === "daily" ? "Daily" : `${habit?.targetCount}× / week`}
           <span className="logview__count">{logs.length} total logs</span>
         </p>
       </div>
@@ -103,7 +113,9 @@ export default function LogView() {
         <form className="log-form" onSubmit={handleLogSubmit}>
           <div className="log-form__fields">
             <div className="form-group">
-              <label className="form-label" htmlFor="log-date">Date</label>
+              <label className="form-label" htmlFor="log-date">
+                Date
+              </label>
               <input
                 id="log-date"
                 type="date"
@@ -115,7 +127,9 @@ export default function LogView() {
               />
             </div>
             <div className="form-group log-form__notes">
-              <label className="form-label" htmlFor="log-notes">Notes (optional)</label>
+              <label className="form-label" htmlFor="log-notes">
+                Notes (optional)
+              </label>
               <input
                 id="log-notes"
                 type="text"

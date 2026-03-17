@@ -18,11 +18,7 @@ router.get("/:habitId", async (req, res) => {
     const habit = await db.collection("habits").findOne({ _id: habitId });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
-    const logs = await db
-      .collection("logs")
-      .find({ habitId })
-      .sort({ logDate: -1 })
-      .toArray();
+    const logs = await db.collection("logs").find({ habitId }).sort({ logDate: -1 }).toArray();
 
     res.json(logs);
   } catch (err) {
@@ -63,9 +59,7 @@ router.post("/", async (req, res) => {
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
     // Prevent duplicate log for same habit + date
-    const existing = await db
-      .collection("logs")
-      .findOne({ habitId: habitObjId, logDate });
+    const existing = await db.collection("logs").findOne({ habitId: habitObjId, logDate });
     if (existing) {
       return res.status(409).json({ error: "A log for this habit on this date already exists" });
     }
@@ -93,9 +87,7 @@ router.delete("/:id", async (req, res) => {
     }
 
     const db = getDB();
-    const result = await db
-      .collection("logs")
-      .deleteOne({ _id: new ObjectId(req.params.id) });
+    const result = await db.collection("logs").deleteOne({ _id: new ObjectId(req.params.id) });
 
     if (result.deletedCount === 0) {
       return res.status(404).json({ error: "Log not found" });

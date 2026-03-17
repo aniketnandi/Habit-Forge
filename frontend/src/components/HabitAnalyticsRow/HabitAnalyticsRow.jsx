@@ -17,7 +17,9 @@ export default function HabitAnalyticsRow({ habit }) {
     <article className="analytics-row">
       <div className="analytics-row__top">
         <div className="analytics-row__name-row">
-          <span className="analytics-row__emoji" aria-hidden="true">{emoji}</span>
+          <span className="analytics-row__emoji" aria-hidden="true">
+            {emoji}
+          </span>
           <h3 className="analytics-row__name">{habit.name}</h3>
           <span className="analytics-row__category">{habit.category}</span>
         </div>

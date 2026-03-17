@@ -22,7 +22,9 @@ function formatTime(isoStr) {
 export default function LogEntry({ log, onDelete }) {
   return (
     <li className="log-entry">
-      <div className="log-entry__check" aria-hidden="true">✅</div>
+      <div className="log-entry__check" aria-hidden="true">
+        ✅
+      </div>
       <div className="log-entry__info">
         <span className="log-entry__date">{formatDate(log.logDate)}</span>
         <span className="log-entry__time">Logged at {formatTime(log.createdAt)}</span>

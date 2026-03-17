@@ -5,6 +5,7 @@ const { connectDB } = require("./db/connection");
 const habitsRouter = require("./routes/habits");
 const logsRouter = require("./routes/logs");
 const analyticsRouter = require("./routes/analytics");
+const goalsRouter = require("./routes/goals");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -35,6 +36,7 @@ app.use((req, res, next) => {
 app.use("/api/habits", habitsRouter);
 app.use("/api/logs", logsRouter);
 app.use("/api/analytics", analyticsRouter);
+app.use("/api/goals", goalsRouter);
 
 // Health check
 app.get("/api/health", (req, res) => {
@@ -47,7 +49,7 @@ app.use((req, res) => {
 });
 
 // Global error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   console.error("Unhandled error:", err);
   res.status(500).json({ error: "Internal server error" });
 });

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import HabitAnalyticsRow from "../HabitAnalyticsRow/HabitAnalyticsRow.jsx";
 import DateRangeFilter from "../DateRangeFilter/DateRangeFilter.jsx";
 import SortControls from "../SortControls/SortControls.jsx";
+import GoalForm from "../GoalForm/GoalForm.jsx";
 import "./Analytics.css";
 
 function getDefaultRange() {
@@ -131,6 +132,7 @@ export default function Analytics() {
           {summaries.map((habit, i) => (
             <li key={habit._id} className="fade-in" style={{ animationDelay: `${i * 0.05}s` }}>
               <HabitAnalyticsRow habit={habit} />
+              <GoalForm habitId={habit._id.toString()} habitName={habit.name} />
             </li>
           ))}
         </ul>
