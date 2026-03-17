@@ -133,9 +133,10 @@ Habit Forge/
 |     |     |     |--- ProgressBar/
 |     |     |     |--- SortControls/
 |     |     |     |--- GoalForm/
+|     |     |--- api.js
 |     |     |--- App.jsx
 |     |     |--- main.jsx
-|     |     |--- index.jsx
+|     |     |--- index.css
 |     |--- index.html
 |     |--- package.json
 ```
