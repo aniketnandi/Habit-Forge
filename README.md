@@ -5,6 +5,7 @@
 **Authors:** Aniket Nandi, Runze (Neil) Wang  
 **Course:** [Full Stack Web Development](https://johnguerra.co/classes/webDevelopment_spring_2025/)  
 **Project:** Project 3 - Node + Express + MongoDB + React (Hooks)
+
 ---
 ## Project Objective
 
@@ -17,6 +18,7 @@ Users can:
 - Analyze weekly completion percentages
 - Sort habits by completion rate, streak, or name
 - Filter analytics by custom date range
+
 ---
 ## Tech Stack
 |Layer      | Technology                      |
@@ -26,6 +28,10 @@ Users can:
 |Frontend   | React 18 with Hooks             |
 |Routing    | React Router v6                 |
 |Build      | Vite                            |
+
+---
+## Live Demo
+https://habit-forge-frontend-fox4.onrender.com
 
 ---
 ## How to Use the App
@@ -47,7 +53,7 @@ Users can:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-org>/habitforge.git
+git clone https://github.com/aniketnandi/Habit-Forge.git
 cd habitforge
 ```
 
@@ -56,6 +62,7 @@ cd habitforge
 ```bash
 cd backend
 npm install
+cp .env.example .env
 # Edit .env and set MONGO_URI to your MongoDB connection string
 ```
 
@@ -95,6 +102,7 @@ Frontend runs on `http://localhost:5173` and proxies `/api` calls to the backend
 ```bash
 npm run build   # outputs to frontend/dist/
 ```
+
 ---
 ## Project Structure
 ```aiignore
@@ -107,9 +115,9 @@ Habit Forge/
 |     |     |--- habits.js
 |     |     |--- logs.js
 |     |     |--- analytics.js
+|     |     |--- goals.js
 |     |--- server.js
 |     |--- package.json
-|     |--- .env
 |--- frontend/
 |     |--- src/
 |     |     |--- components/
@@ -124,6 +132,7 @@ Habit Forge/
 |     |     |     |--- DateRangeFilter/
 |     |     |     |--- ProgressBar/
 |     |     |     |--- SortControls/
+|     |     |     |--- GoalForm/
 |     |     |--- App.jsx
 |     |     |--- main.jsx
 |     |     |--- index.jsx
@@ -138,6 +147,7 @@ Habit Forge/
 |-----------|-----------------------------------------------|----------------------------------------|
 |`habits`   | Habit definitions (name, category, frequency) | Aniket (full CRUD)                     |
 |`logs `    |Completion log entries per habit               | Aniket (C/R/D), Neil (R for analytics) |
+|`goals`    |Weekly goal targets per habit                  |Neil (full CRUD)                        |
 
 ---
 ## License
