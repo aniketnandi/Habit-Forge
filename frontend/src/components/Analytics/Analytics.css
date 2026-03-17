@@ -1,0 +1,124 @@
+.analytics__header {
+  margin-bottom: 24px;
+}
+
+.analytics__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  letter-spacing: -0.03em;
+}
+
+.analytics__subtitle {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  margin-top: 4px;
+}
+
+/* KPI Strip */
+.analytics__kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.kpi-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border-top: 3px solid transparent;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.kpi-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.kpi-card--blue   { border-top-color: var(--blue); }
+.kpi-card--teal   { border-top-color: var(--teal); }
+.kpi-card--orange { border-top-color: var(--orange); }
+.kpi-card--green  { border-top-color: var(--green); }
+
+.kpi-card__icon {
+  font-size: 1.4rem;
+}
+
+.kpi-card__num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  line-height: 1;
+}
+
+.kpi-card__label {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Controls */
+.analytics__controls {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.analytics__section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--gray-400);
+  margin-bottom: 10px;
+}
+
+.analytics__section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top habit */
+.analytics__top-habit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green-pale);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.analytics__top-label {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.analytics__top-pct {
+  color: var(--gray-500);
+  font-size: 0.82rem;
+}
+
+/* List */
+.analytics__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

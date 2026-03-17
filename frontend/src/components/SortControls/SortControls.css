@@ -1,0 +1,35 @@
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sort-controls__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  margin-right: 4px;
+}
+
+.sort-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 1.5px solid transparent;
+  transition: all var(--transition);
+}
+
+.sort-btn:hover {
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+
+.sort-btn--active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}

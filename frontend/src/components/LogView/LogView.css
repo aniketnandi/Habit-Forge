@@ -1,0 +1,96 @@
+.logview__header {
+  margin-bottom: 28px;
+}
+
+.logview__back {
+  background: none;
+  color: var(--blue-light);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color var(--transition);
+}
+
+.logview__back:hover {
+  color: var(--blue);
+}
+
+.logview__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.logview__meta {
+  font-size: 0.88rem;
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logview__count {
+  background: var(--teal-pale);
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.logview__form-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.logview__section-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+}
+
+.log-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.log-form__fields {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.log-form__notes {
+  flex: 2;
+  min-width: 160px;
+}
+
+.logview__list-section {
+  margin-top: 4px;
+}
+
+.logview__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

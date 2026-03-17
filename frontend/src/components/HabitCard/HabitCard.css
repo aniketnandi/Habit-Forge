@@ -1,0 +1,85 @@
+.habit-card {
+  display: flex;
+  gap: 16px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.habit-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.habit-card--blue { border-left-color: var(--blue); }
+.habit-card--teal { border-left-color: var(--teal); }
+.habit-card--green { border-left-color: var(--green); }
+.habit-card--orange { border-left-color: var(--orange); }
+.habit-card--gray { border-left-color: var(--gray-400); }
+
+.habit-card__left {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.habit-card__emoji {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.habit-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.habit-card__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.habit-card__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  letter-spacing: -0.01em;
+}
+
+.habit-card__badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.habit-card__badge--blue { background: var(--blue-pale); color: var(--blue); }
+.habit-card__badge--teal { background: var(--teal-pale); color: var(--teal); }
+.habit-card__badge--green { background: var(--green-pale); color: var(--green); }
+.habit-card__badge--orange { background: var(--orange-pale); color: var(--orange); }
+.habit-card__badge--gray { background: var(--gray-100); color: var(--gray-500); }
+
+.habit-card__meta {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  margin-bottom: 12px;
+}
+
+.habit-card__freq {
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.habit-card__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

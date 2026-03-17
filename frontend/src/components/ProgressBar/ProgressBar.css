@@ -1,0 +1,28 @@
+.progress-bar {
+  position: relative;
+  height: 8px;
+  background: var(--gray-100);
+  border-radius: 8px;
+  overflow: visible;
+  flex: 1;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.progress-bar__fill--green { background: var(--green); }
+.progress-bar__fill--teal { background: var(--teal); }
+.progress-bar__fill--orange { background: var(--orange); }
+.progress-bar__fill--red { background: var(--red); }
+
+.progress-bar__label {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gray-500);
+}

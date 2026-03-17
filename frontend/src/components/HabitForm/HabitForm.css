@@ -1,0 +1,163 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: slideUp 0.22s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.modal__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.modal__close {
+  background: none;
+  font-size: 1rem;
+  color: var(--gray-400);
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.modal__close:hover {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.habit-form {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group--fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.form-required {
+  color: var(--red);
+}
+
+.form-input,
+.form-select {
+  padding: 10px 12px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--gray-900);
+  background: var(--white);
+  transition: border-color var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--blue-light);
+}
+
+.form-input--error {
+  border-color: var(--red) !important;
+}
+
+.form-input--narrow {
+  max-width: 100px;
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: var(--red);
+}
+
+.form-hint {
+  font-size: 0.78rem;
+  color: var(--gray-400);
+}
+
+.freq-options {
+  display: flex;
+  gap: 10px;
+}
+
+.freq-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  font-weight: 500;
+  transition: border-color var(--transition), background var(--transition);
+  user-select: none;
+}
+
+.freq-option input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--blue);
+}
+
+.freq-option:hover {
+  border-color: var(--blue-light);
+  background: var(--blue-pale);
+}
+
+.freq-option--active {
+  border-color: var(--blue);
+  background: var(--blue-pale);
+  color: var(--blue);
+}
+
+.modal__footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
