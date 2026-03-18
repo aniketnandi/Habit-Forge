@@ -3,7 +3,7 @@
 ![HabitForge Screenshot](./screenshot.png)
 
 **Authors:** Aniket Nandi, Runze (Neil) Wang  
-**Course:** [Full Stack Web Development](https://johnguerra.co/classes/webDevelopment_spring_2025/)  
+**Course:** [CS 5610 Web Development](https://app.slack.com/client/T09D5U3U8A1/C09D5U47DK7)  
 **Project:** Project 3 - Node + Express + MongoDB + React (Hooks)
 
 ---
@@ -54,7 +54,7 @@ https://habit-forge-frontend-fox4.onrender.com
 
 ```bash
 git clone https://github.com/aniketnandi/Habit-Forge.git
-cd habitforge
+cd Habit-Forge
 ```
 
 ### 2. Set up the backend
@@ -144,11 +144,11 @@ Habit Forge/
 ---
 ## MongoDB Collections
 
-|Collection | Description                                   | CRUD Owner                             |
-|-----------|-----------------------------------------------|----------------------------------------|
-|`habits`   | Habit definitions (name, category, frequency) | Aniket (full CRUD)                     |
-|`logs `    |Completion log entries per habit               | Aniket (C/R/D), Neil (R for analytics) |
-|`goals`    |Weekly goal targets per habit                  |Neil (full CRUD)                        |
+| Collection  | Description                                   | CRUD Owner                             |
+|-------------|-----------------------------------------------|----------------------------------------|
+| `habits`    | Habit definitions (name, category, frequency) | Aniket (full CRUD)                     |
+| `logs`      | Completion log entries per habit              | Aniket (C/R/D), Neil (R for analytics) |
+| `goals`     | Weekly goal targets per habit                 | Neil (full CRUD)                       |
 
 ---
 ## License

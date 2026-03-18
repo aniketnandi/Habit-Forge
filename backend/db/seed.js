@@ -66,6 +66,10 @@ async function seed() {
       .collection("logs")
       .drop()
       .catch(() => {});
+    await db
+      .collection("goals")
+      .drop()
+      .catch(() => {});
 
     console.log("Seeding habits...");
     const now = new Date();
