@@ -13,6 +13,7 @@ const authRouter = require("./routes/auth");
 const requireAuth = require("./middleware/requireAuth");
 
 const app = express();
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 5000;
 
 // Middleware
