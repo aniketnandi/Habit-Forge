@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { apiFetch } from "../../api.js";
 import "./HabitForm.css";
 
 const CATEGORIES = ["Study", "Fitness", "Health", "Mindfulness", "Other"];
@@ -57,7 +58,7 @@ export default function HabitForm({ existing, onSave, onClose }) {
     try {
       const url = isEditing ? `/api/habits/${existing._id}` : "/api/habits";
       const method = isEditing ? "PUT" : "POST";
-      const res = await fetch(url, {
+      const res = await apiFetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
