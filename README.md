@@ -34,6 +34,10 @@ Users can:
 https://habit-forge-frontend-fox4.onrender.com
 
 ---
+## Demo Video
+https://youtu.be/your-video-link
+
+---
 ## How to Use the App
 
 1. **Dashboard** - Your home screen. See all habits at a glance. Use the search bar and filters to narrow by category or frequency.
