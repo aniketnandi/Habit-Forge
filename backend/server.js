@@ -11,6 +11,7 @@ const analyticsRouter = require("./routes/analytics");
 const goalsRouter = require("./routes/goals");
 const authRouter = require("./routes/auth");
 const requireAuth = require("./middleware/requireAuth");
+const path = require("path");
 
 const app = express();
 app.set("trust proxy", 1);
@@ -73,6 +74,11 @@ app.use("/api/goals", requireAuth, goalsRouter);
 // Health check
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
 // 404 handler

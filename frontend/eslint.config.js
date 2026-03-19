@@ -6,6 +6,7 @@ import reactPlugin from "eslint-plugin-react";
 
 export default [
   {
+    ignores: ["dist/**", "node_modules/**"],
     files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
     languageOptions: {
       ecmaVersion: "latest",

@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_URL || "";
+const BASE = "";
 
 export function apiFetch(path, options = {}) {
   return fetch(`${BASE}${path}`, {
