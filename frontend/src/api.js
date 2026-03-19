@@ -1,2 +1,8 @@
 const BASE = import.meta.env.VITE_API_URL || "";
-export const apiFetch = (path, options) => fetch(`${BASE}${path}`, options);
+
+export function apiFetch(path, options = {}) {
+  return fetch(`${BASE}${path}`, {
+    ...options,
+    credentials: "include",
+  });
+}

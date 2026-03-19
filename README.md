@@ -34,12 +34,18 @@ Users can:
 https://habit-forge-frontend-fox4.onrender.com
 
 ---
+## Test Account
+- **Username:** testuser
+- **Password:** password123
+
+---
 ## Demo Video
-https://youtu.be/WKyi9r0OIFo
+https://youtu.be/vYcBYF3roz8
 
 ---
 ## How to Use the App
 
+0. **Register / Login** - Create a new account at the Register page, or use the test account: username `testuser`, password `password123`.
 1. **Dashboard** - Your home screen. See all habits at a glance. Use the search bar and filters to narrow by category or frequency.
 2. **+ New Habit** - Click the button to create a habit. Give it a name, category, and frequency (daily or number of times per week).
 3. **View Logs** - Click "📋 View Logs" on any habit card to see its completion history. Log a new completion by picking a date (past or today) and clicking "+ Log Completion".
@@ -112,19 +118,27 @@ npm run build   # outputs to frontend/dist/
 ```aiignore
 Habit Forge/
 |--- backend/
+|     |--- middleware/
+|     |     |--- requireAuth.js
 |     |--- db/
 |     |     |--- connection.js
 |     |     |--- seed.js
+|     |     |--- passport.js
 |     |--- routes/
 |     |     |--- habits.js
 |     |     |--- logs.js
 |     |     |--- analytics.js
 |     |     |--- goals.js
+|     |     |--- auth.js
 |     |--- server.js
 |     |--- package.json
 |--- frontend/
 |     |--- src/
+|     |     |--- context/
+|     |     |     |--- UserContext.jsx
 |     |     |--- components/
+|     |     |     |--- Login/
+|     |     |     |--- Register/
 |     |     |     |--- Navbar/
 |     |     |     |--- Dashboard/
 |     |     |     |--- HabitCard/
@@ -148,11 +162,12 @@ Habit Forge/
 ---
 ## MongoDB Collections
 
-| Collection  | Description                                   | CRUD Owner                             |
-|-------------|-----------------------------------------------|----------------------------------------|
-| `habits`    | Habit definitions (name, category, frequency) | Aniket (full CRUD)                     |
-| `logs`      | Completion log entries per habit              | Aniket (C/R/D), Neil (R for analytics) |
-| `goals`     | Weekly goal targets per habit                 | Neil (full CRUD)                       |
+| Collection | Description                                   | CRUD Owner                             |
+|------------|-----------------------------------------------|----------------------------------------|
+| `habits`   | Habit definitions (name, category, frequency) | Aniket (full CRUD)                     |
+| `logs`     | Completion log entries per habit              | Aniket (C/R/D), Neil (R for analytics) |
+| `goals`    | Weekly goal targets per habit                 | Neil (full CRUD)                       |
+| `users`    | User accounts (username, hashed password)     | Aniket (Register), Neil (Login/Logout) |
 
 ---
 ## License

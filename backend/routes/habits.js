@@ -8,7 +8,11 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const db = getDB();
-    const habits = await db.collection("habits").find({}).sort({ createdAt: -1 }).toArray();
+    const habits = await db
+      .collection("habits")
+      .find({ userId: req.user._id })
+      .sort({ createdAt: -1 })
+      .toArray();
     res.json(habits);
   } catch (err) {
     console.error("GET /habits error:", err);
@@ -23,7 +27,9 @@ router.get("/:id", async (req, res) => {
       return res.status(400).json({ error: "Invalid habit ID" });
     }
     const db = getDB();
-    const habit = await db.collection("habits").findOne({ _id: new ObjectId(req.params.id) });
+    const habit = await db
+      .collection("habits")
+      .findOne({ _id: new ObjectId(req.params.id), userId: req.user._id });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
     res.json(habit);
   } catch (err) {
@@ -59,6 +65,7 @@ router.post("/", async (req, res) => {
       category,
       frequency,
       targetCount: frequency === "daily" ? 1 : Math.min(Math.max(Number(targetCount) || 3, 1), 7),
+      userId: req.user._id,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -110,7 +117,7 @@ router.put("/:id", async (req, res) => {
     const result = await db
       .collection("habits")
       .findOneAndUpdate(
-        { _id: new ObjectId(req.params.id) },
+        { _id: new ObjectId(req.params.id), userId: req.user._id },
         { $set: updates },
         { returnDocument: "after" }
       );
@@ -133,7 +140,7 @@ router.delete("/:id", async (req, res) => {
     const db = getDB();
     const habitId = new ObjectId(req.params.id);
 
-    const deleted = await db.collection("habits").deleteOne({ _id: habitId });
+    const deleted = await db.collection("habits").deleteOne({ _id: habitId, userId: req.user._id });
     if (deleted.deletedCount === 0) {
       return res.status(404).json({ error: "Habit not found" });
     }

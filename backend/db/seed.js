@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { MongoClient } = require("mongodb");
+const bcrypt = require("bcrypt");
 
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -70,11 +71,27 @@ async function seed() {
       .collection("goals")
       .drop()
       .catch(() => {});
+    await db
+      .collection("users")
+      .drop()
+      .catch(() => {});
+
+    console.log("Creating test user...");
+    const hashedPassword = await bcrypt.hash("password123", 10);
+    const testUser = {
+      username: "testuser",
+      password: hashedPassword,
+      createdAt: new Date(),
+    };
+    const userResult = await db.collection("users").insertOne(testUser);
+    const testUserId = userResult.insertedId;
+    console.log("Test user created: testuser / password123");
 
     console.log("Seeding habits...");
     const now = new Date();
     const habits = HABIT_TEMPLATES.map((template) => ({
       ...template,
+      userId: testUserId,
       createdAt: addDays(now, -randomInt(30, 365)),
       updatedAt: addDays(now, -randomInt(0, 10)),
     }));

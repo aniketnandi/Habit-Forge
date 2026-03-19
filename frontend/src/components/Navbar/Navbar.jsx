@@ -1,7 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useUser } from "../../context/UserContext.jsx";
 import "./Navbar.css";
 
 export default function Navbar() {
+  const { user, logout } = useUser();
+  const navigate = useNavigate();
+
+  async function handleLogout() {
+    await logout();
+    navigate("/login");
+  }
+
   return (
     <header className="navbar">
       <div className="navbar__inner">
@@ -27,6 +36,14 @@ export default function Navbar() {
           >
             Analytics
           </NavLink>
+          {user && (
+            <div className="navbar__user">
+              <span className="navbar__username">👤 {user.username}</span>
+              <button className="navbar__logout" onClick={handleLogout}>
+                Sign Out
+              </button>
+            </div>
+          )}
         </nav>
       </div>
     </header>

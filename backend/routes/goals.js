@@ -54,7 +54,7 @@ router.post("/", async (req, res) => {
     const habitObjId = new ObjectId(habitId);
 
     // Verify habit exists
-    const habit = await db.collection("habits").findOne({ _id: habitObjId });
+    const habit = await db.collection("habits").findOne({ _id: habitObjId, userId: req.user._id });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
     // Only one goal per habit

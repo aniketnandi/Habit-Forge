@@ -15,7 +15,7 @@ router.get("/:habitId", async (req, res) => {
     const habitId = new ObjectId(req.params.habitId);
 
     // Verify habit exists
-    const habit = await db.collection("habits").findOne({ _id: habitId });
+    const habit = await db.collection("habits").findOne({ _id: habitId, userId: req.user._id });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
     const logs = await db.collection("logs").find({ habitId }).sort({ logDate: -1 }).toArray();
@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
     const habitObjId = new ObjectId(habitId);
 
     // Verify habit exists
-    const habit = await db.collection("habits").findOne({ _id: habitObjId });
+    const habit = await db.collection("habits").findOne({ _id: habitObjId, userId: req.user._id });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
     // Prevent duplicate log for same habit + date

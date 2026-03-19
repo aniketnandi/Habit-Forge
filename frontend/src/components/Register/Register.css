@@ -1,0 +1,14 @@
+/* Reuses auth-page styles from Login.css via index.css shared vars */
+/* Register shares all styles with Login via the shared auth-page classes */
+.auth-page,
+.auth-card,
+.auth-card__header,
+.auth-card__logo,
+.auth-card__title,
+.auth-card__subtitle,
+.auth-form,
+.auth-btn,
+.auth-card__footer,
+.auth-link {
+  /* These classes are defined in Login.css and shared across auth pages */
+}

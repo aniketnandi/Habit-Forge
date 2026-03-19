@@ -63,7 +63,7 @@ router.get("/streak/:habitId", async (req, res) => {
     const db = getDB();
     const habitId = new ObjectId(req.params.habitId);
 
-    const habit = await db.collection("habits").findOne({ _id: habitId });
+    const habit = await db.collection("habits").findOne({ _id: habitId, userId: req.user._id });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
     const logs = await db.collection("logs").find({ habitId }).project({ logDate: 1 }).toArray();
@@ -89,7 +89,7 @@ router.get("/weekly/:habitId", async (req, res) => {
     const db = getDB();
     const habitId = new ObjectId(req.params.habitId);
 
-    const habit = await db.collection("habits").findOne({ _id: habitId });
+    const habit = await db.collection("habits").findOne({ _id: habitId, userId: req.user._id });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
     const today = new Date().toISOString().split("T")[0];
@@ -125,7 +125,7 @@ router.get("/summary", async (req, res) => {
     const sort = req.query.sort || "completion";
     const db = getDB();
 
-    const habits = await db.collection("habits").find({}).toArray();
+    const habits = await db.collection("habits").find({ userId: req.user._id }).toArray();
     if (!habits.length) return res.json([]);
 
     const today = new Date().toISOString().split("T")[0];
@@ -201,7 +201,7 @@ router.get("/range/:habitId", async (req, res) => {
     const db = getDB();
     const habitId = new ObjectId(req.params.habitId);
 
-    const habit = await db.collection("habits").findOne({ _id: habitId });
+    const habit = await db.collection("habits").findOne({ _id: habitId, userId: req.user._id });
     if (!habit) return res.status(404).json({ error: "Habit not found" });
 
     const logs = await db
