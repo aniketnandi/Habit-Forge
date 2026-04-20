@@ -45,7 +45,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--gray-500);
-  background: var(--gray-100);
+  background: var(--gray-200);
   padding: 2px 8px;
   border-radius: 10px;
 }
