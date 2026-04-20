@@ -47,7 +47,7 @@
 }
 
 .stat-chip--teal .stat-chip__num {
-  color: var(--teal);
+  color: #0f766e;
 }
 
 .stat-chip__label {
