@@ -78,9 +78,9 @@ app.get("/api/health", (req, res) => {
 
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 app.get("*", (req, res, next) => {
-  if (req.path.startsWith("/api")) {
-    return next();
-  }
+  if (req.path.startsWith("/api")) return next();
+  if (path.extname(req.path)) return next();
+
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
