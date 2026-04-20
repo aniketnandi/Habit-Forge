@@ -76,12 +76,13 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+const distPath = path.resolve(__dirname, "../frontend/dist");
+app.use(express.static(distPath));
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api")) return next();
-  if (path.extname(req.path)) return next();
+  if (req.path.includes(".")) return next();
 
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
 });
 
 // 404 handler
