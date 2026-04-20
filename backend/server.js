@@ -76,18 +76,14 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-const distPath = path.resolve(__dirname, "../frontend/dist");
-app.use(express.static(distPath));
-app.get("*", (req, res, next) => {
-  if (req.path.startsWith("/api")) return next();
-  if (req.path.includes(".")) return next();
-
-  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
 // 404 handler
-app.use("/api", (req, res) => {
-  res.status(404).json({ error: `API route ${req.method} ${req.path} not found` });
+app.use((req, res) => {
+  res.status(404).json({ error: `Route ${req.method} ${req.path} not found` });
 });
 
 // Global error handler
