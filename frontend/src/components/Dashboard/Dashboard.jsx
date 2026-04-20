@@ -144,7 +144,7 @@ export default function Dashboard() {
           </p>
         </div>
       ) : (
-        <ul className="dashboard__list">
+        <ul className="dashboard__list" role="list">
           {filtered.map((habit, i) => (
             <li key={habit._id} className="fade-in" style={{ animationDelay: `${i * 0.04}s` }}>
               <HabitCard habit={habit} onEdit={handleEdit} onDelete={handleDelete} />

@@ -18,7 +18,7 @@ export default function Navbar() {
           <span className="navbar__flame">🔥</span>
           <span className="navbar__title">HabitForge</span>
         </NavLink>
-        <nav className="navbar__nav">
+        <nav className="navbar__nav" aria-label="Main navigation">
           <NavLink
             to="/"
             end

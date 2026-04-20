@@ -23,7 +23,7 @@ function AppRoutes() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
