@@ -27,7 +27,7 @@
 .goal-form__current {
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--teal);
+  color: #0f766e;
   background: var(--teal-pale);
   padding: 2px 10px;
   border-radius: 12px;
