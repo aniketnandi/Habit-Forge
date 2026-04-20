@@ -94,3 +94,25 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.log-form__quick-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.quick-note-btn {
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.quick-note-btn:hover {
+  background: var(--gray-200);
+}

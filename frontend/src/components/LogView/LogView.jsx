@@ -139,6 +139,20 @@ export default function LogView() {
                 placeholder="How did it go?"
                 maxLength={200}
               />
+              <div className="log-form__quick-notes">
+                {["Felt great!", "Completed ✓", "Tough but done", "Skipped — makeup"].map(
+                  (note) => (
+                    <button
+                      key={note}
+                      type="button"
+                      className="quick-note-btn"
+                      onClick={() => setNotes(note)}
+                    >
+                      {note}
+                    </button>
+                  )
+                )}
+              </div>
             </div>
           </div>
           <button type="submit" className="btn btn--teal" disabled={submitting}>

@@ -16,6 +16,10 @@ function getPresetRange(preset) {
     const start = new Date(today.getFullYear(), today.getMonth(), 1);
     return { start: fmt(start), end: fmt(today) };
   }
+  if (preset === "year") {
+    const start = new Date(today.getFullYear(), 0, 1);
+    return { start: fmt(start), end: fmt(today) };
+  }
   if (preset === "all") {
     const start = new Date(today);
     start.setFullYear(start.getFullYear() - 1);
@@ -60,6 +64,9 @@ export default function DateRangeFilter({ start, end, onApply }) {
         </button>
         <button className="preset-btn" onClick={() => handlePreset("month")}>
           This Month
+        </button>
+        <button className="preset-btn" onClick={() => handlePreset("year")}>
+          This Year
         </button>
         <button className="preset-btn" onClick={() => handlePreset("all")}>
           Past Year
