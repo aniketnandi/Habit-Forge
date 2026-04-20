@@ -74,7 +74,7 @@ export default function Dashboard() {
 
   return (
     <div className="page">
-      <div className="dashboard__header fade-in">
+      <section className="dashboard__header fade-in">
         <div className="dashboard__title-row">
           <h1 className="dashboard__title">Your Habits</h1>
           <button className="btn btn--primary" onClick={() => setShowForm(true)}>
@@ -82,7 +82,7 @@ export default function Dashboard() {
           </button>
         </div>
 
-        <div className="dashboard__stats">
+        <section className="dashboard__stats" aria-label="Summary statistics">
           <div className="stat-chip">
             <span className="stat-chip__num">{habits.length}</span>
             <span className="stat-chip__label">Total Habits</span>
@@ -91,7 +91,7 @@ export default function Dashboard() {
             <span className="stat-chip__num">{filtered.length}</span>
             <span className="stat-chip__label">Showing</span>
           </div>
-        </div>
+        </section>
 
         <div className="dashboard__filters">
           <input
@@ -127,7 +127,7 @@ export default function Dashboard() {
             ))}
           </select>
         </div>
-      </div>
+      </section>
 
       {error && <div className="error-box">{error}</div>}
 
@@ -135,7 +135,7 @@ export default function Dashboard() {
         <div className="spinner">Loading habits…</div>
       ) : filtered.length === 0 ? (
         <div className="empty-state fade-in">
-          <div className="empty-state__icon">🌱</div>
+          <div className="empty-state__icon" aria-hidden="true">🌱</div>
           <h3>{habits.length === 0 ? "No habits yet" : "No matching habits"}</h3>
           <p>
             {habits.length === 0

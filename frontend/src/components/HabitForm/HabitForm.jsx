@@ -25,6 +25,14 @@ export default function HabitForm({ existing, onSave, onClose }) {
     }
   }, [existing]);
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === "Escape") onClose();
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   function validate() {
     const errs = {};
     if (!name.trim()) errs.name = "Habit name is required.";

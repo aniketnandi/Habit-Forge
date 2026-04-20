@@ -13,6 +13,9 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <div className="navbar__inner">
         <NavLink to="/" className="navbar__brand">
           <span className="navbar__flame">🔥</span>

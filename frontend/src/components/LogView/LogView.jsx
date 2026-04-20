@@ -157,7 +157,7 @@ export default function LogView() {
             <p>Log your first completion above!</p>
           </div>
         ) : (
-          <ul className="logview__list">
+          <ul className="logview__list" role="list">
             {logs.map((log) => (
               <LogEntry key={log._id} log={log} onDelete={handleDelete} />
             ))}

@@ -73,28 +73,28 @@ export default function Analytics() {
       </div>
 
       {/* KPI Strip */}
-      <div className="analytics__kpi-strip fade-in">
+      <section className="analytics__kpi-strip fade-in" aria-label="Analytics summary">
         <div className="kpi-card kpi-card--blue">
-          <span className="kpi-card__icon">🔥</span>
+          <span className="kpi-card__icon" aria-hidden="true">🔥</span>
           <span className="kpi-card__num">{bestStreak}</span>
           <span className="kpi-card__label">Best Active Streak</span>
         </div>
         <div className="kpi-card kpi-card--teal">
-          <span className="kpi-card__icon">📈</span>
+          <span className="kpi-card__icon" aria-hidden="true">📈</span>
           <span className="kpi-card__num">{avgWeekly}%</span>
           <span className="kpi-card__label">Avg Weekly %</span>
         </div>
         <div className="kpi-card kpi-card--orange">
-          <span className="kpi-card__icon">✅</span>
+          <span className="kpi-card__icon" aria-hidden="true">✅</span>
           <span className="kpi-card__num">{totalLogs}</span>
           <span className="kpi-card__label">Total Logs</span>
         </div>
         <div className="kpi-card kpi-card--green">
-          <span className="kpi-card__icon">🏆</span>
+          <span className="kpi-card__icon" aria-hidden="true">🏆</span>
           <span className="kpi-card__num">{longestEver}</span>
           <span className="kpi-card__label">Longest Ever Streak</span>
         </div>
-      </div>
+      </section>
 
       {/* Controls */}
       <div className="analytics__controls fade-in">
@@ -110,11 +110,11 @@ export default function Analytics() {
 
       {/* Top habit callout */}
       {topHabit && !loading && (
-        <div className="analytics__top-habit fade-in">
+        <section className="analytics__top-habit fade-in" aria-label="Top habit this week">
           <span className="analytics__top-label">🥇 Top Habit this week:</span>
           <strong>{topHabit.name}</strong>
           <span className="analytics__top-pct">{topHabit.weeklyPct}% completion</span>
-        </div>
+        </section>
       )}
 
       {error && <div className="error-box">{error}</div>}
@@ -123,12 +123,12 @@ export default function Analytics() {
         <div className="spinner">Calculating analytics…</div>
       ) : summaries.length === 0 ? (
         <div className="empty-state fade-in">
-          <div className="empty-state__icon">📊</div>
+          <div className="empty-state__icon" aria-hidden="true">📊</div>
           <h3>No data yet</h3>
           <p>Create habits and log some completions to see analytics.</p>
         </div>
       ) : (
-        <ul className="analytics__list">
+        <ul className="analytics__list" role="list">
           {summaries.map((habit, i) => (
             <li key={habit._id} className="fade-in" style={{ animationDelay: `${i * 0.05}s` }}>
               <HabitAnalyticsRow habit={habit} />
