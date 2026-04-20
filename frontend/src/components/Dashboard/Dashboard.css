@@ -52,7 +52,7 @@
 
 .stat-chip__label {
   font-size: 0.8rem;
-  color: var(--gray-500);
+  color: #374151;
   font-weight: 500;
 }
 
@@ -136,12 +136,12 @@
 }
 
 .btn--teal {
-  background: var(--teal);
+  background: #0f766e;
   color: var(--white);
 }
 
 .btn--teal:hover {
-  background: var(--teal-light);
+  background: #0d6860;
 }
 
 .btn--ghost {

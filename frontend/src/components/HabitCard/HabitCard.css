@@ -62,10 +62,10 @@
 }
 
 .habit-card__badge--blue { background: var(--blue-pale); color: var(--blue); }
-.habit-card__badge--teal { background: var(--teal-pale); color: var(--teal); }
-.habit-card__badge--green { background: var(--green-pale); color: var(--green); }
-.habit-card__badge--orange { background: var(--orange-pale); color: var(--orange); }
-.habit-card__badge--gray { background: var(--gray-100); color: var(--gray-500); }
+.habit-card__badge--teal { background: var(--teal-pale); color: #0f766e; }
+.habit-card__badge--green { background: var(--green-pale); color: #15803d; }
+.habit-card__badge--orange { background: var(--orange-pale); color: #c2410c; }
+.habit-card__badge--gray { background: var(--gray-100); color: #374151; }
 
 .habit-card__meta {
   font-size: 0.85rem;
