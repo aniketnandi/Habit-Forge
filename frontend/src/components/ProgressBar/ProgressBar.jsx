@@ -19,7 +19,7 @@ export default function ProgressBar({ percentage, showLabel }) {
       aria-valuenow={clamped}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-label={`Habit completion progress: ${clamped}%`}
+      aria-label={`${clamped}% completion`}
     >
       <div
         className={`progress-bar__fill progress-bar__fill--${color}`}
