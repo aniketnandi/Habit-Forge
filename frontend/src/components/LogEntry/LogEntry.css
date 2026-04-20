@@ -34,7 +34,7 @@
 
 .log-entry__time {
   font-size: 0.8rem;
-  color: var(--gray-400);
+  color: var(--gray-500);
 }
 
 .log-entry__notes {

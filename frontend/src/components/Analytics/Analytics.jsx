@@ -75,22 +75,30 @@ export default function Analytics() {
       {/* KPI Strip */}
       <section className="analytics__kpi-strip fade-in" aria-label="Analytics summary">
         <div className="kpi-card kpi-card--blue">
-          <span className="kpi-card__icon" aria-hidden="true">🔥</span>
+          <span className="kpi-card__icon" aria-hidden="true">
+            🔥
+          </span>
           <span className="kpi-card__num">{bestStreak}</span>
           <span className="kpi-card__label">Best Active Streak</span>
         </div>
         <div className="kpi-card kpi-card--teal">
-          <span className="kpi-card__icon" aria-hidden="true">📈</span>
+          <span className="kpi-card__icon" aria-hidden="true">
+            📈
+          </span>
           <span className="kpi-card__num">{avgWeekly}%</span>
           <span className="kpi-card__label">Avg Weekly %</span>
         </div>
         <div className="kpi-card kpi-card--orange">
-          <span className="kpi-card__icon" aria-hidden="true">✅</span>
+          <span className="kpi-card__icon" aria-hidden="true">
+            ✅
+          </span>
           <span className="kpi-card__num">{totalLogs}</span>
           <span className="kpi-card__label">Total Logs</span>
         </div>
         <div className="kpi-card kpi-card--green">
-          <span className="kpi-card__icon" aria-hidden="true">🏆</span>
+          <span className="kpi-card__icon" aria-hidden="true">
+            🏆
+          </span>
           <span className="kpi-card__num">{longestEver}</span>
           <span className="kpi-card__label">Longest Ever Streak</span>
         </div>
@@ -123,7 +131,9 @@ export default function Analytics() {
         <div className="spinner">Calculating analytics…</div>
       ) : summaries.length === 0 ? (
         <div className="empty-state fade-in">
-          <div className="empty-state__icon" aria-hidden="true">📊</div>
+          <div className="empty-state__icon" aria-hidden="true">
+            📊
+          </div>
           <h3>No data yet</h3>
           <p>Create habits and log some completions to see analytics.</p>
         </div>

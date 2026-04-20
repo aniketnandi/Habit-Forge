@@ -135,7 +135,9 @@ export default function Dashboard() {
         <div className="spinner">Loading habits…</div>
       ) : filtered.length === 0 ? (
         <div className="empty-state fade-in">
-          <div className="empty-state__icon" aria-hidden="true">🌱</div>
+          <div className="empty-state__icon" aria-hidden="true">
+            🌱
+          </div>
           <h3>{habits.length === 0 ? "No habits yet" : "No matching habits"}</h3>
           <p>
             {habits.length === 0
