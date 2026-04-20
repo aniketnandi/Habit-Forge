@@ -4,3 +4,6 @@ node_modules/
 .DS_Store
 dist/
 .vite/
+.idea/
+frontend/.vite/
+frontend/dist/
