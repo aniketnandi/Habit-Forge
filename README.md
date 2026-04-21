@@ -52,8 +52,9 @@ conveys structure and consistency, matching the app's focus on building habits. 
 Approve actions always use blue or teal. Cancel always uses gray. Destructive always uses red.
 
 ### Accessibility
-The app passes Lighthouse accessibility audit with 100% score. All interactive elements are keyboard accessible, a 
-skip-to-content link is provided, all form inputs have associated labels, and ARIA roles are used throughout.
+The app passes Lighthouse accessibility audit with 100% score. All interactive elements are 
+keyboard accessible (Tab & Shift + Tab along with Arrow Keys and Enter), a skip-to-content link is provided, all form 
+inputs have associated labels, and ARIA roles are used throughout.
 
 ### Usability Study Improvements
 Based on the usability study findings, the following improvements were implemented:
