@@ -98,7 +98,7 @@ https://youtu.be/vYcBYF3roz8
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/aniketnandi/Habit-Forge.git
+git clone -b final-project https://github.com/aniketnandi/Habit-Forge.git
 cd Habit-Forge
 ```
 
