@@ -9,7 +9,10 @@
 ---
 ## Project Objective
 
-HabitForge is a personal productivity and consistency tracking platform that helps users build and maintain structured habits, from daily coding practice and gym workouts to reading and interview preparation.
+HabitForge is a personal productivity and consistency tracking platform that helps users build and maintain structured 
+habits, from daily coding practice and gym workouts to reading and interview preparation.
+
+Improvements to design, accessibility and usability.
 
 Users can:
 - Create, edit, and delete habits with daily or weekly frequency targets
