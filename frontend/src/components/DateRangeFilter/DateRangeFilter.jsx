@@ -6,6 +6,19 @@ function getPresetRange(preset) {
   const today = new Date();
   const fmt = (d) => d.toISOString().split("T")[0];
 
+  if (preset === "today") {
+    return { start: fmt(today), end: fmt(today) };
+  }
+  if (preset === "past-week") {
+    const start = new Date(today);
+    start.setDate(start.getDate() - 7);
+    return { start: fmt(start), end: fmt(today) };
+  }
+  if (preset === "past-month") {
+    const start = new Date(today);
+    start.setMonth(start.getMonth() - 1);
+    return { start: fmt(start), end: fmt(today) };
+  }
   if (preset === "week") {
     const start = new Date(today);
     const day = start.getDay();
@@ -59,6 +72,9 @@ export default function DateRangeFilter({ start, end, onApply }) {
   return (
     <div className="date-range-filter">
       <div className="date-range-filter__presets">
+        <button className="preset-btn" onClick={() => handlePreset("today")}>
+          Today
+        </button>
         <button className="preset-btn" onClick={() => handlePreset("week")}>
           This Week
         </button>
@@ -67,6 +83,12 @@ export default function DateRangeFilter({ start, end, onApply }) {
         </button>
         <button className="preset-btn" onClick={() => handlePreset("year")}>
           This Year
+        </button>
+        <button className="preset-btn" onClick={() => handlePreset("past-week")}>
+          Past Week
+        </button>
+        <button className="preset-btn" onClick={() => handlePreset("past-month")}>
+          Past Month
         </button>
         <button className="preset-btn" onClick={() => handlePreset("all")}>
           Past Year

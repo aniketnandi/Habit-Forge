@@ -4,7 +4,7 @@
 
 **Authors:** Aniket Nandi, Runze (Neil) Wang  
 **Course:** [CS 5610 Web Development](https://app.slack.com/client/T09D5U3U8A1/C09D5U47DK7)  
-**Project:** Project 3 - Node + Express + MongoDB + React (Hooks)
+**Project:** Final Project: Iterating your full stack application with design, accessibility and usability
 
 ---
 ## Project Objective
@@ -31,7 +31,41 @@ Users can:
 
 ---
 ## Live Demo
-https://habit-forge-fvl4.onrender.com
+https://habit-forge-final-project.onrender.com
+
+---
+## Design Decisions
+
+### Typography
+HabitForge uses **Syne** as the display font for headings and **DM Sans** as the body font. Syne's bold geometric style 
+conveys structure and consistency, matching the app's focus on building habits. DM Sans provides clean, readable body text.
+
+### Color Palette
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Navy Blue | `#1a4b8c` | Primary actions, navigation |
+| Teal | `#0d9488` | Secondary actions, streaks |
+| Orange | `#ea580c` | Goals, highlights |
+| Red | `#dc2626` | Destructive actions |
+| Green | `#16a34a` | Success states |
+
+Approve actions always use blue or teal. Cancel always uses gray. Destructive always uses red.
+
+### Accessibility
+The app passes Lighthouse accessibility audit with 100% score. All interactive elements are keyboard accessible, a 
+skip-to-content link is provided, all form inputs have associated labels, and ARIA roles are used throughout.
+
+### Usability Study Improvements
+Based on the usability study findings, the following improvements were implemented:
+- Added "This Year" date range filter preset to Analytics
+- Also added "Today", "Past Month", and "Past Week" date range filter preset to Analytics inspired by "This Year" preset
+- Added quick-fill note suggestions when logging a habit completion
+
+The following were considered but not implemented:
+- Google SSO would require commercial email services introducing additional cost
+- "Flattened 0s" on analytics and similar color tiles are user-specific perceptions and do not affect functionality
+- Additional habit categories were flagged as a nice-to-have and not a core usability issue
+- Minor individual preferences were not actioned as they did not represent patterns across participants
 
 ---
 ## Test Account
