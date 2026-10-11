@@ -1,213 +1,120 @@
-# HabitForge - Habit & Consistency Tracker
+# HabitForge
 
-![HabitForge Screenshot](./screenshot.png)
+**A full-stack habit tracker for building consistency: log completions, track streaks, and analyze progress over time.**
 
-**Authors:** Aniket Nandi, Runze (Neil) Wang  
-**Course:** [CS 5610 Web Development](https://app.slack.com/client/T09D5U3U8A1/C09D5U47DK7)  
-**Project:** Final Project: Iterating your full stack application with design, accessibility and usability
+[**Live Demo**](https://habit-forge-final-project.onrender.com) · [Demo Video](https://youtu.be/UJ4qNQq3BXg) · [Design Document](./docs/design-document.pdf) · [Usability Report](./docs/usability-report.pdf)
 
----
-## Project Objective
+![HabitForge dashboard](./docs/screenshot.png)
 
-HabitForge is a personal productivity and consistency tracking platform that helps users build and maintain structured 
-habits, from daily coding practice and gym workouts to reading and interview preparation.
-
-Improvements to design, accessibility and usability.
-
-Users can:
-- Create, edit, and delete habits with daily or weekly frequency targets
-- Log completions by date and view full history
-- Track current and longest streaks
-- Analyze weekly completion percentages
-- Sort habits by completion rate, streak, or name
-- Filter analytics by custom date range
+> **Try it:** sign in with username `testuser` / password `password123`, or register a new account.
+> The demo is hosted on Render's free tier, so the first load may take ~30 seconds while the server wakes up.
 
 ---
+
+## Features
+
+- **Habit management:** create, edit, and delete habits with daily or N-times-per-week targets, grouped by category
+- **Completion logging:** log completions for today or past dates, with optional notes and quick-fill suggestions
+- **Streaks:** current and longest streak per habit
+- **Analytics:** weekly completion percentages, overall stats, and per-habit trends
+- **Filtering and sorting:** date-range presets (Today, Past Week, Past Month, This Year, or a custom range), plus sorting by completion rate, streak, or name
+- **Goals:** weekly goal targets per habit
+- **Authentication:** session-based login with hashed passwords; each user only sees their own data
+
 ## Tech Stack
-|Layer      | Technology                      |
-|-----------|---------------------------------|
-|Backend    | Node.js + Express               |
-|Database   | MongoDB (native Node.js driver) |
-|Frontend   | React 18 with Hooks             |
-|Routing    | React Router v6                 |
-|Build      | Vite                            |
 
----
-## Live Demo
-https://habit-forge-final-project.onrender.com
+| Layer    | Technology                                                    |
+| -------- | ------------------------------------------------------------- |
+| Frontend | React 18 (Hooks, Context API), React Router v6, Vite          |
+| Backend  | Node.js, Express                                              |
+| Database | MongoDB (native Node.js driver)                               |
+| Auth     | Passport.js (local strategy), bcrypt, express-session stored in MongoDB (connect-mongo) |
+| Tooling  | ESLint, Prettier                                              |
+| Hosting  | Render (Express serves the API and the built React app)       |
 
----
-## Design Decisions
+## Accessibility and Usability
 
-### Typography
-HabitForge uses **Syne** as the display font for headings and **DM Sans** as the body font. Syne's bold geometric style 
-conveys structure and consistency, matching the app's focus on building habits. DM Sans provides clean, readable body text.
+- **100 Lighthouse accessibility score.** Full keyboard navigation, a skip-to-content link, labeled form inputs, ARIA roles, and accessible color contrast.
+- **Usability-tested.** A usability study with real participants shaped several features, such as the date-range presets and quick-fill log notes. The study and the decisions that came out of it are documented in the [usability report](./docs/usability-report.pdf).
+- **Consistent design system.** Syne for headings and DM Sans for body text. Color is used consistently by meaning: blue/teal for confirm actions, gray for cancel, red for destructive actions.
 
-### Color Palette
-| Color | Hex | Usage |
-|-------|-----|-------|
+| Color     | Hex       | Usage                       |
+| --------- | --------- | --------------------------- |
 | Navy Blue | `#1a4b8c` | Primary actions, navigation |
-| Teal | `#0d9488` | Secondary actions, streaks |
-| Orange | `#ea580c` | Goals, highlights |
-| Red | `#dc2626` | Destructive actions |
-| Green | `#16a34a` | Success states |
+| Teal      | `#0d9488` | Secondary actions, streaks  |
+| Orange    | `#ea580c` | Goals, highlights           |
+| Red       | `#dc2626` | Destructive actions         |
+| Green     | `#16a34a` | Success states              |
 
-Approve actions always use blue or teal. Cancel always uses gray. Destructive always uses red.
+## Architecture
 
-### Accessibility
-The app passes Lighthouse accessibility audit with 100% score. All interactive elements are 
-keyboard accessible (Tab & Shift + Tab along with Arrow Keys and Enter), a skip-to-content link is provided, all form 
-inputs have associated labels, and ARIA roles are used throughout.
-
-### Usability Study Improvements
-Based on the usability study findings, the following improvements were implemented:
-- Added "This Year" date range filter preset to Analytics
-- Also added "Today", "Past Month", and "Past Week" date range filter preset to Analytics inspired by "This Year" preset
-- Added quick-fill note suggestions when logging a habit completion
-
-The following were considered but not implemented:
-- Google SSO would require commercial email services introducing additional cost
-- "Flattened 0s" on analytics and similar color tiles are user-specific perceptions and do not affect functionality
-- Additional habit categories were flagged as a nice-to-have and not a core usability issue
-- Minor individual preferences were not actioned as they did not represent patterns across participants
-
----
-## Test Account
-- **Username:** testuser
-- **Password:** password123
-
----
-## Demo Video
-https://youtu.be/UJ4qNQq3BXg
-
----
-## How to Use the App
-
-0. **Register / Login** - Create a new account at the Register page, or use the test account: username `testuser`, password `password123`.
-1. **Dashboard** - Your home screen. See all habits at a glance. Use the search bar and filters to narrow by category or frequency.
-2. **+ New Habit** - Click the button to create a habit. Give it a name, category, and frequency (daily or number of times per week).
-3. **View Logs** - Click "📋 View Logs" on any habit card to see its completion history. Log a new completion by picking a date (past or today) and clicking "+ Log Completion".
-4. **Edit / Delete** - Use ✏️ Edit to update a habit or 🗑️ Delete to remove it (and all its logs).
-5. **Analytics** - Navigate to the Analytics tab to see streaks, weekly completion percentages, and overall stats for all habits. Use the date range filter and sort controls to explore trends.
----
-## Instructions to Build
-
-### Prerequisites
-
-- Node.js v18+
-- A MongoDB Atlas cluster (or local MongoDB)
-- `npm` or `pnpm`
-
-### 1. Clone the repository
-
-```bash
-git clone -b final-project https://github.com/aniketnandi/Habit-Forge.git
-cd Habit-Forge
+```text
+React SPA ──/api/*──▶ Express + Passport ──▶ MongoDB
+                                             (users, habits, logs, goals, sessions)
 ```
 
-### 2. Set up the backend
+In production, a single Express server serves both the REST API and the built React app. In development, Vite proxies `/api` requests to the backend.
+
+### REST API
+
+All routes except `/api/auth/*` and `/api/health` require an authenticated session.
+
+| Resource  | Endpoints                                                                                     |
+| --------- | --------------------------------------------------------------------------------------------- |
+| Auth      | `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me` |
+| Habits    | `GET/POST /api/habits`, `GET/PUT/DELETE /api/habits/:id`                                      |
+| Logs      | `GET /api/logs/:habitId`, `POST /api/logs`, `DELETE /api/logs/:id`                            |
+| Goals     | `GET/POST /api/goals`, `GET /api/goals/:habitId`, `PUT/DELETE /api/goals/:id`                 |
+| Analytics | `GET /api/analytics/summary`, `GET /api/analytics/{streak,weekly,range}/:habitId`             |
+
+## Running Locally
+
+**Prerequisites:** Node.js 18+ and a MongoDB connection string (MongoDB Atlas or a local instance).
 
 ```bash
+git clone https://github.com/aniketnandi/Habit-Forge.git
+cd Habit-Forge
+
+# Backend
 cd backend
 npm install
-cp .env.example .env
-# Edit .env and set MONGO_URI to your MongoDB connection string
-```
+cp .env.example .env      # then set MONGO_URI and SESSION_SECRET
+npm run seed              # optional: creates the test user and 1,000+ sample log entries
+npm run dev               # API on http://localhost:5000
 
-### 3. Seed the database (1,000+ synthetic records)
-
-```bash
-npm run seed
-```
-
-### 4. Start the backend server
-
-```bash
-npm run dev   # development (nodemon)
-# or
-npm start   # production
-```
-
-Backend runs on `http://localhost:5000`
-
-### 5. Set up the frontend
-
-```bash
-cd ../frontend
+# Frontend (in a second terminal)
+cd frontend
 npm install
+npm run dev               # app on http://localhost:5173
 ```
 
-### 6. Start the frontend dev server
+To run the production build locally, run `npm run build` in `frontend/`, then `npm start` in `backend/`. Express then serves the app at `http://localhost:5000`.
 
-```bash
-npm run dev
-```
-
-Frontend runs on `http://localhost:5173` and proxies `/api` calls to the backend.
-
-### 7. Build for production
-
-```bash
-npm run build   # outputs to frontend/dist/
-```
-
----
 ## Project Structure
-```aiignore
-Habit Forge/
-|--- backend/
-|     |--- middleware/
-|     |     |--- requireAuth.js
-|     |--- db/
-|     |     |--- connection.js
-|     |     |--- seed.js
-|     |     |--- passport.js
-|     |--- routes/
-|     |     |--- habits.js
-|     |     |--- logs.js
-|     |     |--- analytics.js
-|     |     |--- goals.js
-|     |     |--- auth.js
-|     |--- server.js
-|     |--- package.json
-|--- frontend/
-|     |--- src/
-|     |     |--- context/
-|     |     |     |--- UserContext.jsx
-|     |     |--- components/
-|     |     |     |--- Login/
-|     |     |     |--- Register/
-|     |     |     |--- Navbar/
-|     |     |     |--- Dashboard/
-|     |     |     |--- HabitCard/
-|     |     |     |--- HabitForm/
-|     |     |     |--- LogView/
-|     |     |     |--- LogEntry/
-|     |     |     |--- Analytics/
-|     |     |     |--- HabitAnalyticsRow/
-|     |     |     |--- DateRangeFilter/
-|     |     |     |--- ProgressBar/
-|     |     |     |--- SortControls/
-|     |     |     |--- GoalForm/
-|     |     |--- api.js
-|     |     |--- App.jsx
-|     |     |--- main.jsx
-|     |     |--- index.css
-|     |--- index.html
-|     |--- package.json
+
+```text
+Habit-Forge/
+├── backend/
+│   ├── db/            # MongoDB connection, Passport config, seed script
+│   ├── middleware/    # requireAuth
+│   ├── routes/        # auth, habits, logs, goals, analytics
+│   └── server.js
+├── frontend/
+│   └── src/
+│       ├── components/  # Dashboard, HabitCard, HabitForm, LogView, Analytics, ...
+│       ├── context/     # UserContext (auth state)
+│       ├── api.js
+│       └── App.jsx
+└── docs/              # Design document, usability report, presentations, screenshots
 ```
 
----
-## MongoDB Collections
+## Authors
 
-| Collection | Description                                   | CRUD Owner                             |
-|------------|-----------------------------------------------|----------------------------------------|
-| `habits`   | Habit definitions (name, category, frequency) | Aniket (full CRUD)                     |
-| `logs`     | Completion log entries per habit              | Aniket (C/R/D), Neil (R for analytics) |
-| `goals`    | Weekly goal targets per habit                 | Neil (full CRUD)                       |
-| `users`    | User accounts (username, hashed password)     | Aniket (Register), Neil (Login/Logout) |
+Built by **[Aniket Nandi](https://github.com/aniketnandi)** and **Runze (Neil) Wang** for CS 5610 Web Development at Northeastern University.
 
----
+- **Aniket:** habits (full CRUD), completion logs, registration
+- **Neil:** goals (full CRUD), analytics, login/logout
+
 ## License
 
 [MIT](./LICENSE)
